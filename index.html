@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishabh Pandey - Data Scientist & ML Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        .admin-btn {
+            background: #007bff;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .profile-img-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #007bff;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .profile-upload-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 18px;
+            display: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,123,255,0.3);
+        }
+
+        .profile-upload-btn:hover {
+            background: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .edit-mode .profile-upload-btn {
+            display: block;
+        }
+
+        #profileUpload {
+            display: none;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            margin-bottom: 2rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #007bff;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #007bff;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .experience-company {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .experience-duration {
+            color: #666;
+            font-style: italic;
+        }
+
+        .experience-description {
+            margin-top: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #e3f2fd;
+            color: #007bff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-links a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            border-top: 4px solid #007bff;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 4px;
+            transition: width 2s ease;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #007bff;
+        }
+
+        .education-degree {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .education-school {
+            color: #007bff;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+
+        .education-duration {
+            color: #666;
+            font-style: italic;
+        }
+
+        .education-grade {
+            margin-top: 1rem;
+            color: #333;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .social-link:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Blog Section */
+        .blog-post {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #007bff;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-content {
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                align-items: start;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            z-index: 3000;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: #28a745;
+        }
+
+        .notification.error {
+            background: #dc3545;
+        }
+
+        /* Edit Mode Styles */
+        .edit-mode {
+            outline: 2px dashed #007bff;
+            background: rgba(0, 123, 255, 0.05);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .edit-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 6px;
+            font-size: 10px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .edit-mode:hover .edit-button {
+            opacity: 1;
+        }
+
+        .inline-edit {
+            background: white;
+            border: 2px solid #007bff;
+            padding: 5px;
+            font-family: inherit;
+            font-size: inherit;
+            width: 100%;
+            border-radius: 3px;
+        }
+
+        .save-indicator {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+            z-index: 1000;
+        }
+
+        /* Profile Upload Modal */
+        .profile-upload-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-upload-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .profile-upload-content h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .upload-area {
+            border: 2px dashed #007bff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem 0;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-area:hover {
+            background: #f8f9fa;
+            border-color: #0056b3;
+        }
+
+        .upload-area.drag-over {
+            background: #e3f2fd;
+            border-color: #0056b3;
+        }
+
+        .profile-preview {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 1rem auto;
+            object-fit: cover;
+            border: 3px solid #007bff;
+        }
+
+        .upload-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Password Modal */
+        .password-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .password-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Save Indicator -->
+    <div id="saveIndicator" class="save-indicator">Auto-saved ✓</div>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="password-modal">
+        <div class="password-content">
+            <h3>🔒 Admin Access Required</h3>
+            <p>Enter password to access edit mode:</p>
+            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
+            <div class="upload-buttons">
+                <button onclick="checkPassword()" class="btn btn-primary btn-small">Unlock</button>
+                <button onclick="closePasswordModal()" class="btn btn-secondary btn-small">Cancel</button>
+            </div>
+            <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">
+                💡 Hint: Your birth year + "data" + IIT Kanpur establishment year
+            </p>
+        </div>
+    </div>
+
+    <!-- Profile Upload Modal -->
+    <div id="profileUploadModal" class="profile-upload-modal">
+        <div class="profile-upload-content">
+            <h3>📷 Update Profile Picture</h3>
+            <div class="upload-area" onclick="document.getElementById('profileUpload').click()">
+                <div>
+                    <p>🖼️ Click here or drag & drop your photo</p>
+                    <p style="font-size: 0.9rem; color: #666;">Supported: JPG, PNG, GIF (Max 5MB)</p>
+                </div>
+            </div>
+            <input type="file" id="profileUpload" accept="image/*" style="display: none;">
+            <img id="profilePreview" class="profile-preview" style="display: none;">
+            <div class="upload-buttons">
+                <button onclick="updateProfilePicture()" class="btn btn-primary btn-small" id="updateBtn" style="display: none;">Update Picture</button>
+                <button onclick="closeProfileUploadModal()" class="btn btn-secondary btn-small">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Toggle Button -->
+    <button id="adminToggle" class="admin-toggle" onclick="requestAdminAccess()" title="Admin Access">🔒</button>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Rishabh Pandey</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="profile-img-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiByeD0iMTAwIiBmaWxsPSIjZTNmMmZkIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiMwMDdiZmYiPlI8L3RleHQ+Cjwvc3ZnPg==" alt="Profile Picture" class="profile-img" id="profileImg">
+                    <button class="profile-upload-btn" onclick="openProfileUploadModal()" title="Change Profile Picture">📷</button>
+                </div>
+                <h1 class="editable" data-field="name">Rishabh Pandey</h1>
+                <p class="subtitle editable" data-field="subtitle">Aspiring Data Scientist | GenAI & ML Engineering Enthusiast | GATE AIR 4 Achiever</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#" class="btn btn-secondary" id="downloadResume">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="section-content">
+                <div class="about-text editable" data-field="about">
+                    Passionate data enthusiast currently pursuing M.Tech in Management Sciences (formerly known as Industrial and Management Engineering) at IIT Kanpur with a CGPA of 8.05 (up to first semester). With hands-on experience as a Product Development Engineer and recent summer internship at Kusumgar Corporates, I bring a unique blend of technical expertise and practical industry knowledge to the data science domain.
+                    <br><br>
+                    My journey includes developing a sophisticated RAG-based Chatbot for Product Development teams, processing 1.5 crore rows of data across 1467 technical fabric articles. With expertise in Python, SQL, LangChain, and advanced ML techniques, I've successfully built end-to-end data pipelines and intelligent systems for real-world applications.
+                    <br><br>
+                    Currently serving as Department Placement Coordinator (DPC) at IIT Kanpur, I'm actively pursuing my passion for becoming a data scientist and GenAI enthusiast. As a GATE 2024 AIR 4 achiever, I demonstrate excellence in analytical thinking and problem-solving.
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number editable" data-field="stat1">2+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number editable" data-field="stat2">500+</div>
+                        <div class="stat-label">LinkedIn Connections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number editable" data-field="stat3">8.05</div>
+                        <div class="stat-label">Current CGPA</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number editable" data-field="stat4">3+</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="section-content">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title editable" data-field="exp1_title">Department placement Coordinator</div>
+                            <div class="experience-company editable" data-field="exp1_company">Department of Management Sciences, IIT Kanpur</div>
+                        </div>
+                        <div class="experience-duration editable" data-field="exp1_duration">Aug 2024 - Present</div>
+                    </div>
+                    <div class="experience-description editable" data-field="exp1_desc">As the Department Placement Coordinator, I am responsible for managing corporate partnerships and facilitating student placements. My role involves direct interaction with companies, inviting them for the upcoming placement season, and exploring new corporate connections to expand placement opportunities. Additionally, I support coordination efforts for placement-related events and help maintain communication between the department and industry partners.</div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title editable" data-field="exp2_title">Product Development Engineer</div>
+                            <div class="experience-company editable" data-field="exp2_company">Kusumgar Corporates Pvt Ltd</div>
+                        </div>
+                        <div class="experience-duration editable" data-field="exp2_duration">July 2021 - Sep 2023</div>
+                    </div>
+                    <div class="experience-description editable" data-field="exp2_desc">Worked in the Defence & Aeronautical segment, leading the development of high-performance technical fabrics tailored for strategic applications. My role involved extensive data-driven decision-making to optimize product quality and manufacturing efficiency. Leveraged ERP systems and advanced Excel tools to analyze production workflows, reduce costs, and improve process transparency. A key part of my work included analyzing spectral data, such as color reflectance, to optimize IRR (Infrared Reflectance) values—an essential requirement for defense textiles.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="section-content">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title editable" data-field="proj1_title">RAG-based Chatbot for Product Development</div>
+                        <div class="project-description editable" data-field="proj1_desc">
+                            Built an intelligent chatbot for Product Development team using 800+ technical fabric articles (1467 variants). Processed 1.5 crore rows from 28 Excel files to help PD team with parachute, defense, industrial, auto, and sportswear fabric development. Complete end-to-end pipeline with data cleaning, feature engineering, and intelligent retrieval system.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Sentence Transformers</span>
+                            <span class="tech-tag">Weaviate</span>
+                            <span class="tech-tag">Azure API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/rishabhpandey9/rag-chatbot" target="_blank">GitHub</a>
+                            <a href="https://www.linkedin.com/in/rishabhpandey9/" target="_blank">LinkedIn</a>
+                        </div>
+                        <img src="images/rag-chatbot-demo.png" alt="RAG Chatbot Demo" class="project-image">
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title editable" data-field="proj2_title">Spectral Data Analysis for Defense Textiles</div>
+                        <div class="project-description editable" data-field="proj2_desc">
+                            Developed a spectral analysis pipeline to optimize IRR (Infrared Reflectance) values for defense textile products. Automated data extraction from ERP and Excel, performed advanced statistical analysis, and visualized results for product teams.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Excel</span>
+                            <span class="tech-tag">Matplotlib</span>
+                            <span class="tech-tag">ERP Integration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/rishabhpandey9/spectral-analysis" target="_blank">GitHub</a>
+                        </div>
+                        <img src="images/spectral-analysis-demo.png" alt="Spectral Analysis Demo" class="project-image">
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title editable" data-field="proj3_title">Crime Rate Prediction Model</div>
+                        <div class="project-description editable" data-field="proj3_desc">
+                            Built a regression model to analyze the influence of socio-economic factors on crime rates. Conducted data preprocessing, feature selection, and utilized Python libraries for statistical modeling and analysis to derive actionable insights.
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NumPy</span>
+                            <span class="tech-tag">Statsmodels</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/rishabhpandey9/crime-prediction" target="_blank">GitHub</a>
+                        </div>
+                        <img src="images/crime-prediction-demo.png" alt="Crime Prediction Demo" class="project-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="section-content">
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>SQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>R</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Machine Learning</h3>
+                        <div class="skill-item">
+                            <span>Scikit-learn</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Deep Learning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Generative AI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Data Analysis</h3>
+                        <div class="skill-item">
+                            <span>NumPy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Pandas</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Statistical Analysis</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Platforms</h3>
+                        <div class="skill-item">
+                            <span>Power BI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Excel</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="section-content">
+                <div class="education-item">
+                    <div class="education-degree editable" data-field="edu1_degree">Master of Technology - M.Tech, Management Sciences (formerly IME)</div>
+                    <div class="education-school editable" data-field="edu1_school">Indian Institute of Technology, Kanpur</div>
+                    <div class="education-duration editable" data-field="edu1_duration">2024 - Present</div>
+                    <div class="education-grade editable" data-field="edu1_grade">Current CGPA: 8.05/10 (Up to First Semester)</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree editable" data-field="edu2_degree">Bachelor of Technology - B.Tech, Textile Chemistry</div>
+                    <div class="education-school editable" data-field="edu2_school">Nitra Technical Campus, Ghaziabad</div>
+                    <div class="education-duration editable" data-field="edu2_duration">2017 - 2021</div>
+                    <div class="education-grade editable" data-field="edu2_grade">CGPA: 8.26/10</div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-degree editable" data-field="edu3_degree">Higher Secondary Education - UP Board</div>
+                    <div class="education-school editable" data-field="edu3_school">Rani Laxmi Bai Smarak Inter College</div>
+                    <div class="education-duration editable" data-field="edu3_duration">2015</div>
+                    <div class="education-grade editable" data-field="edu3_grade">Percentage: 78.8%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2>Blog</h2>
+            <div class="section-content">
+                <div class="blog-post">
+                    <div class="blog-title editable" data-field="blog1_title">Understanding RAG-based Chatbots</div>
+                    <div class="blog-date editable" data-field="blog1_date">December 2024</div>
+                    <div class="blog-content editable" data-field="blog1_content">Deep dive into Retrieval Augmented Generation (RAG) architecture and how it revolutionizes enterprise chatbot development. Learn about the implementation challenges and best practices from real-world experience.</div>
+                </div>
+                
+                <div class="blog-post">
+                    <div class="blog-title editable" data-field="blog2_title">Data Science in Defense Industry</div>
+                    <div class="blog-date editable" data-field="blog2_date">November 2024</div>
+                    <div class="blog-content editable" data-field="blog2_content">Exploring how data science and machine learning are transforming the defense textile industry. From spectral analysis to predictive manufacturing, discover the applications that are changing the game.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="section-content">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <div class="editable" data-field="email1">rishabhp24@iitk.ac.in</div>
+                                <div class="editable" data-field="email2">rishudrp@gmail.com</div>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📱</div>
+                            <div class="editable" data-field="phone">+91 7985647101</div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="editable" data-field="location">IIT Kanpur, Kanpur, UP, India</div>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/rishabh-pandey-6939051aa/" class="social-link" target="_blank">💼</a>
+                            <a href="https://github.com/rishabhiitk" class="social-link" target="_blank">🐙</a>
+                            <a href="#" class="social-link" target="_blank">🐦</a>
+                            <a href="#" class="social-link" target="_blank">📷</a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Admin password - change this to your preferred password
+        const ADMIN_PASSWORD = "1999data1959"; // Birth year + "data" + IIT Kanpur establishment year
+        
+        let isAdminAuthenticated = false;
+        let editMode = false;
+        let selectedFile = null;
+        
+        // Website data storage
+        let websiteData = {
+            profileImage: null,
+            name: "Rishabh Pandey",
+            subtitle: "Aspiring Data Scientist | GenAI & ML Engineering Enthusiast | GATE AIR 4 Achiever",
+            about: "Passionate data enthusiast currently pursuing M.Tech in Management Sciences (formerly known as Industrial and Management Engineering) at IIT Kanpur with a CGPA of 8.05 (up to first semester). With hands-on experience as a Product Development Engineer and recent summer internship at Kusumgar Corporates, I bring a unique blend of technical expertise and practical industry knowledge to the data science domain.<br><br>My journey includes developing a sophisticated RAG-based Chatbot for Product Development teams, processing 1.5 crore rows of data across 1467 technical fabric articles. With expertise in Python, SQL, LangChain, and advanced ML techniques, I've successfully built end-to-end data pipelines and intelligent systems for real-world applications.<br><br>Currently serving as Department Placement Coordinator (DPC) at IIT Kanpur, I'm actively pursuing my passion for becoming a data scientist and GenAI enthusiast. As a GATE 2024 AIR 4 achiever, I demonstrate excellence in analytical thinking and problem-solving.",
+            // Add all other fields...
+        };
+
+        // Request admin access
+        function requestAdminAccess() {
+            if (isAdminAuthenticated) {
+                toggleEditMode();
+            } else {
+                document.getElementById('passwordModal').style.display = 'flex';
+                document.getElementById('passwordInput').focus();
+            }
+        }
+
+        // Check password
+        function checkPassword() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === ADMIN_PASSWORD) {
+                isAdminAuthenticated = true;
+                closePasswordModal();
+                showNotification('Admin access granted! 🎉', 'success');
+                document.getElementById('adminToggle').innerHTML = '✏️';
+                document.getElementById('adminToggle').title = 'Edit Mode';
+                toggleEditMode();
+            } else {
+                showNotification('Incorrect password! 🚫', 'error');
+                document.getElementById('passwordInput').value = '';
+            }
+        }
+
+        // Close password modal
+        function closePasswordModal() {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('passwordInput').value = '';
+        }
+
+        // Toggle edit mode
+        function toggleEditMode() {
+            if (!isAdminAuthenticated) {
+                requestAdminAccess();
+                return;
+            }
+
+            editMode = !editMode;
+            const button = document.getElementById('adminToggle');
+            
+            if (editMode) {
+                button.innerHTML = '💾';
+                button.title = 'Save & Exit Edit Mode';
+                enableEditMode();
+                showNotification('Edit mode enabled! Click on any text to edit.', 'success');
+            } else {
+                button.innerHTML = '✏️';
+                button.title = 'Edit Mode';
+                disableEditMode();
+                saveData();
+                showNotification('Changes saved!', 'success');
+            }
+        }
+
+        // Enable edit mode
+        function enableEditMode() {
+            document.querySelectorAll('.editable').forEach(element => {
+                element.classList.add('edit-mode');
+                element.addEventListener('click', makeEditable);
+            });
+            
+            // Enable profile image container edit mode
+            document.querySelector('.profile-img-container').classList.add('edit-mode');
+        }
+
+        // Disable edit mode
+        function disableEditMode() {
+            document.querySelectorAll('.editable').forEach(element => {
+                element.classList.remove('edit-mode');
+                element.removeEventListener('click', makeEditable);
+            });
+            
+            // Disable profile image container edit mode
+            document.querySelector('.profile-img-container').classList.remove('edit-mode');
+        }
+
+        // Make element editable
+        function makeEditable(event) {
+            event.preventDefault();
+            const element = event.target;
+            const field = element.getAttribute('data-field');
+            const currentValue = websiteData[field] || element.textContent;
+            
+            let input;
+            if (currentValue.length > 100) {
+                input = document.createElement('textarea');
+                input.value = currentValue.replace(/<br>/g, '\n').replace(/<[^>]*>/g, '');
+                input.rows = 4;
+            } else {
+                input = document.createElement('input');
+                input.type = 'text';
+                input.value = currentValue.replace(/<[^>]*>/g, '');
+            }
+            
+            input.className = 'inline-edit';
+            
+            function saveEdit() {
+                let newValue = input.value;
+                if (input.tagName === 'TEXTAREA') {
+                    newValue = newValue.replace(/\n/g, '<br>');
+                }
+                websiteData[field] = newValue;
+                element.innerHTML = newValue;
+                element.parentNode.replaceChild(element, input);
+                saveData();
+            }
+            
+            input.addEventListener('blur', saveEdit);
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    saveEdit();
+                }
+            });
+            
+            element.parentNode.replaceChild(input, element);
+            input.focus();
+            input.select();
+        }
+
+        // Profile picture functions
+        function openProfileUploadModal() {
+            if (!editMode) return;
+            document.getElementById('profileUploadModal').style.display = 'flex';
+        }
+
+        function closeProfileUploadModal() {
+            document.getElementById('profileUploadModal').style.display = 'none';
+            document.getElementById('profilePreview').style.display = 'none';
+            document.getElementById('updateBtn').style.display = 'none';
+            selectedFile = null;
+        }
+
+        // Handle file upload
+        document.getElementById('profileUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file && file.type.startsWith('image/')) {
+                if (file.size > 5 * 1024 * 1024) { // 5MB limit
+                    showNotification('File too large! Maximum size is 5MB.', 'error');
+                    return;
+                }
+                
+                selectedFile = file;
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('profilePreview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    document.getElementById('updateBtn').style.display = 'inline-block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Update profile picture
+        function updateProfilePicture() {
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    websiteData.profileImage = e.target.result;
+                    document.getElementById('profileImg').src = e.target.result;
+                    saveData();
+                    closeProfileUploadModal();
+                    showNotification('Profile picture updated! 📸', 'success');
+                };
+                reader.readAsDataURL(selectedFile);
+            }
+        }
+
+        // Drag and drop for profile upload
+        const uploadArea = document.querySelector('.upload-area');
+        uploadArea.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            this.classList.add('drag-over');
+        });
+
+        uploadArea.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            e.preventDefault();
+            this.classList.remove('drag-over');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                document.getElementById('profileUpload').files = files;
+                document.getElementById('profileUpload').dispatchEvent(new Event('change'));
+            }
+        });
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('portfolioData', JSON.stringify(websiteData));
+            showSaveIndicator();
+        }
+
+        // Load data from localStorage
+        function loadData() {
+            const savedData = localStorage.getItem('portfolioData');
+            if (savedData) {
+                websiteData = { ...websiteData, ...JSON.parse(savedData) };
+                updateDisplayedContent();
+            }
+        }
+
+        // Update displayed content
+        function updateDisplayedContent() {
+            // Update profile image if exists
+            if (websiteData.profileImage) {
+                document.getElementById('profileImg').src = websiteData.profileImage;
+            }
+            
+            // Update all editable fields
+            document.querySelectorAll('.editable').forEach(element => {
+                const field = element.getAttribute('data-field');
+                if (websiteData[field]) {
+                    element.innerHTML = websiteData[field];
+                }
+            });
+        }
+
+        // Show save indicator
+        function showSaveIndicator() {
+            const indicator = document.getElementById('saveIndicator');
+            indicator.style.display = 'block';
+            setTimeout(() => {
+                indicator.style.display = 'none';
+            }, 2000);
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => document.body.removeChild(notification), 300);
+            }, 3000);
+        }
+
+        // Download updated HTML
+        function downloadHTML() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'updated-portfolio.html';
+            a.click();
+            URL.revokeObjectURL(url);
+            showNotification('HTML file downloaded! 📥', 'success');
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showNotification('Message functionality coming soon! Please use email for now.', 'success');
+            this.reset();
+        });
+
+        // Password modal keyboard handling
+        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            loadData();
+            
+            // Session check - admin access expires on page reload for security
+            isAdminAuthenticated = false;
+            
+            // Auto-save every 30 seconds if in edit mode
+            setInterval(function() {
+                if (editMode) {
+                    saveData();
+                }
+            }, 30000);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 'e') {
+                    e.preventDefault();
+                    requestAdminAccess();
+                } else if (e.key === 's') {
+                    e.preventDefault();
+                    if (editMode) {
+                        saveData();
+                        showNotification('Data saved! 💾', 'success');
+                    }
+                }
+            }
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('passwordModal')) {
+                closePasswordModal();
+            }
+            if (e.target === document.getElementById('profileUploadModal')) {
+                closeProfileUploadModal();
+            }
+        });
+
+        // Resume download functionality
+        document.getElementById('downloadResume').addEventListener('click', function(e) {
+            e.preventDefault();
+            // You can add actual resume download link here
+            showNotification('Resume download coming soon! 📄', 'success');
+        });
+
+        // Initialize all website data fields
+        websiteData = {
+            profileImage: null,
+            name: "Rishabh Pandey",
+            subtitle: "Aspiring Data Scientist | GenAI & ML Engineering Enthusiast | GATE AIR 4 Achiever",
+            about: "Passionate data enthusiast currently pursuing M.Tech in Management Sciences (formerly known as Industrial and Management Engineering) at IIT Kanpur with a CGPA of 8.05 (up to first semester). With hands-on experience as a Product Development Engineer and recent summer internship at Kusumgar Corporates, I bring a unique blend of technical expertise and practical industry knowledge to the data science domain.<br><br>My journey includes developing a sophisticated RAG-based Chatbot for Product Development teams, processing 1.5 crore rows of data across 1467 technical fabric articles. With expertise in Python, SQL, LangChain, and advanced ML techniques, I've successfully built end-to-end data pipelines and intelligent systems for real-world applications.<br><br>Currently serving as Department Placement Coordinator (DPC) at IIT Kanpur, I'm actively pursuing my passion for becoming a data scientist and GenAI enthusiast. As a GATE 2024 AIR 4 achiever, I demonstrate excellence in analytical thinking and problem-solving.",
+            stat1: "2+",
+            stat2: "500+",
+            stat3: "8.05",
+            stat4: "3+",
+            exp1_title: "Department placement Coordinator",
+            exp1_company: "Department of Management Sciences, IIT Kanpur",
+            exp1_duration: "Aug 2024 - Present",
+            exp1_desc: "As the Department Placement Coordinator, I am responsible for managing corporate partnerships and facilitating student placements. My role involves direct interaction with companies, inviting them for the upcoming placement season, and exploring new corporate connections to expand placement opportunities. Additionally, I support coordination efforts for placement-related events and help maintain communication between the department and industry partners.",
+            exp2_title: "Product Development Engineer",
+            exp2_company: "Kusumgar Corporates Pvt Ltd",
+            exp2_duration: "July 2021 - Sep 2023",
+            exp2_desc: "Worked in the Defence & Aeronautical segment, leading the development of high-performance technical fabrics tailored for strategic applications. My role involved extensive data-driven decision-making to optimize product quality and manufacturing efficiency. Leveraged ERP systems and advanced Excel tools to analyze production workflows, reduce costs, and improve process transparency. A key part of my work included analyzing spectral data, such as color reflectance, to optimize IRR (Infrared Reflectance) values—an essential requirement for defense textiles.",
+            proj1_title: "RAG-based Chatbot for Product Development",
+            proj1_desc: "Built an intelligent chatbot for Product Development team using 800+ technical fabric articles (1467 variants). Processed 1.5 crore rows from 28 Excel files to help PD team with parachute, defense, industrial, auto, and sportswear fabric development. Complete end-to-end pipeline with data cleaning, feature engineering, and intelligent retrieval system.",
+            proj2_title: "Spectral Data Analysis for Defense Textiles",
+            proj2_desc: "Developed a spectral analysis pipeline to optimize IRR (Infrared Reflectance) values for defense textile products. Automated data extraction from ERP and Excel, performed advanced statistical analysis, and visualized results for product teams.",
+            proj3_title: "Crime Rate Prediction Model",
+            proj3_desc: "Built a regression model to analyze the influence of socio-economic factors on crime rates. Conducted data preprocessing, feature selection, and utilized Python libraries for statistical modeling and analysis to derive actionable insights.",
+            edu1_degree: "Master of Technology - M.Tech, Management Sciences (formerly IME)",
+            edu1_school: "Indian Institute of Technology, Kanpur",
+            edu1_duration: "2024 - Present",
+            edu1_grade: "Current CGPA: 8.05/10 (Up to First Semester)",
+            edu2_degree: "Bachelor of Technology - B.Tech, Textile Chemistry",
+            edu2_school: "Nitra Technical Campus, Ghaziabad",
+            edu2_duration: "2017 - 2021",
+            edu2_grade: "CGPA: 8.26/10",
+            edu3_degree: "Higher Secondary Education - UP Board",
+            edu3_school: "Rani Laxmi Bai Smarak Inter College",
+            edu3_duration: "2015",
+            edu3_grade: "Percentage: 78.8%",
+            blog1_title: "Understanding RAG-based Chatbots",
+            blog1_date: "December 2024",
+            blog1_content: "Deep dive into Retrieval Augmented Generation (RAG) architecture and how it revolutionizes enterprise chatbot development. Learn about the implementation challenges and best practices from real-world experience.",
+            blog2_title: "Data Science in Defense Industry",
+            blog2_date: "November 2024",
+            blog2_content: "Exploring how data science and machine learning are transforming the defense textile industry. From spectral analysis to predictive manufacturing, discover the applications that are changing the game.",
+            email1: "rishabhp24@iitk.ac.in",
+            email2: "rishudrp@gmail.com",
+            phone: "+91 7985647101",
+            location: "IIT Kanpur, Kanpur, UP, India"
+        };
+    </script>
+</body>
+</html>
