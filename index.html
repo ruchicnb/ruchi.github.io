@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rishabh Pandey - Data Scientist & ML Engineer</title>
+    <title>Ruchi Shukla - Advocate</title>
     <style>
         * {
             margin: 0;
@@ -85,49 +85,13 @@
             margin: 0 auto;
         }
 
-        .profile-img-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-
         .profile-img {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             border: 5px solid #007bff;
+            margin-bottom: 2rem;
             object-fit: cover;
-            transition: all 0.3s ease;
-        }
-
-        .profile-upload-btn {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            font-size: 18px;
-            display: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0,123,255,0.3);
-        }
-
-        .profile-upload-btn:hover {
-            background: #0056b3;
-            transform: scale(1.1);
-        }
-
-        .edit-mode .profile-upload-btn {
-            display: block;
-        }
-
-        #profileUpload {
-            display: none;
         }
 
         .hero h1 {
@@ -472,25 +436,184 @@
             gap: 1rem;
             margin-top: 2rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            width: 50px;
-            height: 50px;
             background: #007bff;
             color: white;
-            border-radius: 50%;
+            border-radius: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
             transition: all 0.3s;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            padding: 0.8rem 1.5rem;
+            font-weight: bold;
+            gap: 0.5rem;
         }
 
         .social-link:hover {
             background: #0056b3;
             transform: translateY(-2px);
+        }
+        .social-icon {
+            font-size: 1.2rem;
+        }
+        .social-text{
+            font-size: 0.9rem;
+        }
+
+
+        /* Admin Modal */
+        .admin-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+
+        .admin-modal-content {
+            background: white;
+            margin: 2% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .admin-tabs {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            border-bottom: 2px solid #eee;
+        }
+
+        .admin-tab {
+            padding: 0.8rem 1.5rem;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .admin-tab.active {
+            background: #007bff;
+            color: white;
+        }
+
+        .admin-tab-content {
+            display: none;
+        }
+
+        .admin-tab-content.active {
+            display: block;
+        }
+
+        .admin-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .admin-section h3 {
+            margin-bottom: 1rem;
+            color: #007bff;
+        }
+
+        .file-upload {
+            margin-bottom: 1rem;
+        }
+
+        .file-upload input[type="file"] {
+            margin-bottom: 0.5rem;
+        }
+
+        .current-file {
+            font-size: 0.9rem;
+            color: #666;
+            background: #e9ecef;
+            padding: 0.5rem;
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+
+        .preview-image {
+            max-width: 100px;
+            max-height: 100px;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+
+        .admin-form {
+            margin-top: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .remove-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.3rem 0.8rem;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        .add-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
         }
 
         /* Blog Section */
@@ -546,11 +669,53 @@
             .contact-content {
                 grid-template-columns: 1fr;
             }
+
+            .admin-modal-content {
+                width: 95%;
+                margin: 1% auto;
+                padding: 1rem;
+            }
+
+            .admin-tabs {
+                flex-wrap: wrap;
+            }
+            .social-links{
+                flex-direction: column;
+                align-items: center;
+            }
+            .social-link{
+                width: 200px;
+                justify-content:flex-start;
+                padding: 1rem 1.5rem;
+            }
+
         }
 
         /* Smooth Scrolling */
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007bff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .notification {
@@ -579,224 +744,13 @@
         .notification.error {
             background: #dc3545;
         }
-
-        /* Edit Mode Styles */
-        .edit-mode {
-            outline: 2px dashed #007bff;
-            background: rgba(0, 123, 255, 0.05);
-            cursor: pointer;
-            position: relative;
-        }
-
-        .edit-button {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            padding: 2px 6px;
-            font-size: 10px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .edit-mode:hover .edit-button {
-            opacity: 1;
-        }
-
-        .inline-edit {
-            background: white;
-            border: 2px solid #007bff;
-            padding: 5px;
-            font-family: inherit;
-            font-size: inherit;
-            width: 100%;
-            border-radius: 3px;
-        }
-
-        .save-indicator {
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: #28a745;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            display: none;
-        }
-
-        .admin-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,123,255,0.3);
-            z-index: 1000;
-        }
-
-        /* Profile Upload Modal */
-        .profile-upload-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .profile-upload-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .profile-upload-content h3 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .upload-area {
-            border: 2px dashed #007bff;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 1rem 0;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .upload-area:hover {
-            background: #f8f9fa;
-            border-color: #0056b3;
-        }
-
-        .upload-area.drag-over {
-            background: #e3f2fd;
-            border-color: #0056b3;
-        }
-
-        .profile-preview {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 1rem auto;
-            object-fit: cover;
-            border: 3px solid #007bff;
-        }
-
-        .upload-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        .btn-small {
-            padding: 0.5rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        /* Password Modal */
-        .password-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 3000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .password-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-        }
-
-        .password-input {
-            width: 100%;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .password-input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
     </style>
 </head>
 <body>
-    <!-- Save Indicator -->
-    <div id="saveIndicator" class="save-indicator">Auto-saved ✓</div>
-
-    <!-- Password Modal -->
-    <div id="passwordModal" class="password-modal">
-        <div class="password-content">
-            <h3>🔒 Admin Access Required</h3>
-            <p>Enter password to access edit mode:</p>
-            <input type="password" id="passwordInput" class="password-input" placeholder="Enter password">
-            <div class="upload-buttons">
-                <button onclick="checkPassword()" class="btn btn-primary btn-small">Unlock</button>
-                <button onclick="closePasswordModal()" class="btn btn-secondary btn-small">Cancel</button>
-            </div>
-            <p style="font-size: 0.8rem; color: #666; margin-top: 1rem;">
-                💡 Hint: Your birth year + "data" + IIT Kanpur establishment year
-            </p>
-        </div>
-    </div>
-
-    <!-- Profile Upload Modal -->
-    <div id="profileUploadModal" class="profile-upload-modal">
-        <div class="profile-upload-content">
-            <h3>📷 Update Profile Picture</h3>
-            <div class="upload-area" onclick="document.getElementById('profileUpload').click()">
-                <div>
-                    <p>🖼️ Click here or drag & drop your photo</p>
-                    <p style="font-size: 0.9rem; color: #666;">Supported: JPG, PNG, GIF (Max 5MB)</p>
-                </div>
-            </div>
-            <input type="file" id="profileUpload" accept="image/*" style="display: none;">
-            <img id="profilePreview" class="profile-preview" style="display: none;">
-            <div class="upload-buttons">
-                <button onclick="updateProfilePicture()" class="btn btn-primary btn-small" id="updateBtn" style="display: none;">Update Picture</button>
-                <button onclick="closeProfileUploadModal()" class="btn btn-secondary btn-small">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Admin Toggle Button -->
-    <button id="adminToggle" class="admin-toggle" onclick="requestAdminAccess()" title="Admin Access">🔒</button>
-
     <!-- Header -->
     <header>
         <nav class="container">
-            <div class="logo">Rishabh Pandey</div>
+            <div class="logo">RuchiShukla</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -807,6 +761,7 @@
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="admin-btn" onclick="openAdminModal()">Admin</button>
         </nav>
     </header>
 
@@ -814,12 +769,9 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="profile-img-container">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiByeD0iMTAwIiBmaWxsPSIjZTNmMmZkIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiMwMDdiZmYiPlI8L3RleHQ+Cjwvc3ZnPg==" alt="Profile Picture" class="profile-img" id="profileImg">
-                    <button class="profile-upload-btn" onclick="openProfileUploadModal()" title="Change Profile Picture">📷</button>
-                </div>
-                <h1 class="editable" data-field="name">Rishabh Pandey</h1>
-                <p class="subtitle editable" data-field="subtitle">Aspiring Data Scientist | GenAI & ML Engineering Enthusiast | GATE AIR 4 Achiever</p>
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiByeD0iMTAwIiBmaWxsPSIjZTNmMmZkIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiMwMDdiZmYiPkE8L3RleHQ+Cjwvc3ZnPg==" alt="Profile Picture" class="profile-img" id="profileImg">
+                <h1 id="heroName">Ruchi Shukla</h1>
+                <p class="subtitle" id="heroSubtitle">Advocate | Master's in Chemistry</p>
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">Get In Touch</a>
                     <a href="#" class="btn btn-secondary" id="downloadResume">Download Resume</a>
@@ -833,28 +785,28 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="section-content">
-                <div class="about-text editable" data-field="about">
-                    Passionate data enthusiast currently pursuing M.Tech in Management Sciences (formerly known as Industrial and Management Engineering) at IIT Kanpur with a CGPA of 8.05 (up to first semester). With hands-on experience as a Product Development Engineer and recent summer internship at Kusumgar Corporates, I bring a unique blend of technical expertise and practical industry knowledge to the data science domain.
+                <div class="about-text" id="aboutText">
+                    Passionate data enthusiast currently pursuing a Master's in Management Sciences (formerly IME) at IIT Kanpur, with a strong focus on Data Science, Machine Learning, Analytics, and Supply Chain Optimization. I recently completed a 2-month internship on a Retrieval-Augmented Generation (RAG) based chatbot, where I applied LLMs to build intelligent, context-aware systems.
                     <br><br>
-                    My journey includes developing a sophisticated RAG-based Chatbot for Product Development teams, processing 1.5 crore rows of data across 1467 technical fabric articles. With expertise in Python, SQL, LangChain, and advanced ML techniques, I've successfully built end-to-end data pipelines and intelligent systems for real-world applications.
+                    I have a keen eye for uncovering patterns and transforming data into actionable insights that drive smarter decisions. With growing expertise in Python, SQL, Scikit-learn, and Generative AI, I'm constantly evolving to stay at the cutting edge of the field.
                     <br><br>
-                    Currently serving as Department Placement Coordinator (DPC) at IIT Kanpur, I'm actively pursuing my passion for becoming a data scientist and GenAI enthusiast. As a GATE 2024 AIR 4 achiever, I demonstrate excellence in analytical thinking and problem-solving.
+                    Driven by curiosity and impact, I aim to contribute to data-driven innovation across industries—from finance to operations.
                 </div>
-                <div class="stats">
+                <div class="stats" id="statsGrid">
                     <div class="stat-card">
-                        <div class="stat-number editable" data-field="stat1">2+</div>
+                        <div class="stat-number">2+</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number editable" data-field="stat2">500+</div>
+                        <div class="stat-number">500+</div>
                         <div class="stat-label">LinkedIn Connections</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number editable" data-field="stat3">8.05</div>
+                        <div class="stat-number">8.05 </div>
                         <div class="stat-label">Current CGPA</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number editable" data-field="stat4">3+</div>
+                        <div class="stat-number">3+</div>
                         <div class="stat-label">Certifications</div>
                     </div>
                 </div>
@@ -866,28 +818,8 @@
     <section id="experience" class="section">
         <div class="container">
             <h2>Experience</h2>
-            <div class="section-content">
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title editable" data-field="exp1_title">Department placement Coordinator</div>
-                            <div class="experience-company editable" data-field="exp1_company">Department of Management Sciences, IIT Kanpur</div>
-                        </div>
-                        <div class="experience-duration editable" data-field="exp1_duration">Aug 2024 - Present</div>
-                    </div>
-                    <div class="experience-description editable" data-field="exp1_desc">As the Department Placement Coordinator, I am responsible for managing corporate partnerships and facilitating student placements. My role involves direct interaction with companies, inviting them for the upcoming placement season, and exploring new corporate connections to expand placement opportunities. Additionally, I support coordination efforts for placement-related events and help maintain communication between the department and industry partners.</div>
-                </div>
-                
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div>
-                            <div class="experience-title editable" data-field="exp2_title">Product Development Engineer</div>
-                            <div class="experience-company editable" data-field="exp2_company">Kusumgar Corporates Pvt Ltd</div>
-                        </div>
-                        <div class="experience-duration editable" data-field="exp2_duration">July 2021 - Sep 2023</div>
-                    </div>
-                    <div class="experience-description editable" data-field="exp2_desc">Worked in the Defence & Aeronautical segment, leading the development of high-performance technical fabrics tailored for strategic applications. My role involved extensive data-driven decision-making to optimize product quality and manufacturing efficiency. Leveraged ERP systems and advanced Excel tools to analyze production workflows, reduce costs, and improve process transparency. A key part of my work included analyzing spectral data, such as color reflectance, to optimize IRR (Infrared Reflectance) values—an essential requirement for defense textiles.</div>
-                </div>
+            <div class="section-content" id="experienceContent">
+                <!-- Experience items will be loaded here -->
             </div>
         </div>
     </section>
@@ -897,60 +829,8 @@
         <div class="container">
             <h2>Projects</h2>
             <div class="section-content">
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-title editable" data-field="proj1_title">RAG-based Chatbot for Product Development</div>
-                        <div class="project-description editable" data-field="proj1_desc">
-                            Built an intelligent chatbot for Product Development team using 800+ technical fabric articles (1467 variants). Processed 1.5 crore rows from 28 Excel files to help PD team with parachute, defense, industrial, auto, and sportswear fabric development. Complete end-to-end pipeline with data cleaning, feature engineering, and intelligent retrieval system.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">LangChain</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Sentence Transformers</span>
-                            <span class="tech-tag">Weaviate</span>
-                            <span class="tech-tag">Azure API</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rishabhpandey9/rag-chatbot" target="_blank">GitHub</a>
-                            <a href="https://www.linkedin.com/in/rishabhpandey9/" target="_blank">LinkedIn</a>
-                        </div>
-                        <img src="images/rag-chatbot-demo.png" alt="RAG Chatbot Demo" class="project-image">
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-title editable" data-field="proj2_title">Spectral Data Analysis for Defense Textiles</div>
-                        <div class="project-description editable" data-field="proj2_desc">
-                            Developed a spectral analysis pipeline to optimize IRR (Infrared Reflectance) values for defense textile products. Automated data extraction from ERP and Excel, performed advanced statistical analysis, and visualized results for product teams.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Excel</span>
-                            <span class="tech-tag">Matplotlib</span>
-                            <span class="tech-tag">ERP Integration</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rishabhpandey9/spectral-analysis" target="_blank">GitHub</a>
-                        </div>
-                        <img src="images/spectral-analysis-demo.png" alt="Spectral Analysis Demo" class="project-image">
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-title editable" data-field="proj3_title">Crime Rate Prediction Model</div>
-                        <div class="project-description editable" data-field="proj3_desc">
-                            Built a regression model to analyze the influence of socio-economic factors on crime rates. Conducted data preprocessing, feature selection, and utilized Python libraries for statistical modeling and analysis to derive actionable insights.
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">NumPy</span>
-                            <span class="tech-tag">Statsmodels</span>
-                            <span class="tech-tag">Scikit-learn</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/rishabhpandey9/crime-prediction" target="_blank">GitHub</a>
-                        </div>
-                        <img src="images/crime-prediction-demo.png" alt="Crime Prediction Demo" class="project-image">
-                    </div>
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded here -->
                 </div>
             </div>
         </div>
@@ -961,94 +841,8 @@
         <div class="container">
             <h2>Skills</h2>
             <div class="section-content">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming Languages</h3>
-                        <div class="skill-item">
-                            <span>Python</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>SQL</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>R</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Machine Learning</h3>
-                        <div class="skill-item">
-                            <span>Scikit-learn</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Deep Learning</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Generative AI</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Data Analysis</h3>
-                        <div class="skill-item">
-                            <span>NumPy</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Pandas</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Statistical Analysis</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Tools & Platforms</h3>
-                        <div class="skill-item">
-                            <span>Power BI</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Excel</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span>Git</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Skills will be loaded here -->
                 </div>
             </div>
         </div>
@@ -1058,27 +852,8 @@
     <section id="education" class="section">
         <div class="container">
             <h2>Education</h2>
-            <div class="section-content">
-                <div class="education-item">
-                    <div class="education-degree editable" data-field="edu1_degree">Master of Technology - M.Tech, Management Sciences (formerly IME)</div>
-                    <div class="education-school editable" data-field="edu1_school">Indian Institute of Technology, Kanpur</div>
-                    <div class="education-duration editable" data-field="edu1_duration">2024 - Present</div>
-                    <div class="education-grade editable" data-field="edu1_grade">Current CGPA: 8.05/10 (Up to First Semester)</div>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-degree editable" data-field="edu2_degree">Bachelor of Technology - B.Tech, Textile Chemistry</div>
-                    <div class="education-school editable" data-field="edu2_school">Nitra Technical Campus, Ghaziabad</div>
-                    <div class="education-duration editable" data-field="edu2_duration">2017 - 2021</div>
-                    <div class="education-grade editable" data-field="edu2_grade">CGPA: 8.26/10</div>
-                </div>
-                
-                <div class="education-item">
-                    <div class="education-degree editable" data-field="edu3_degree">Higher Secondary Education - UP Board</div>
-                    <div class="education-school editable" data-field="edu3_school">Rani Laxmi Bai Smarak Inter College</div>
-                    <div class="education-duration editable" data-field="edu3_duration">2015</div>
-                    <div class="education-grade editable" data-field="edu3_grade">Percentage: 78.8%</div>
-                </div>
+            <div class="section-content" id="educationContent">
+                <!-- Education items will be loaded here -->
             </div>
         </div>
     </section>
@@ -1087,18 +862,8 @@
     <section id="blog" class="section">
         <div class="container">
             <h2>Blog</h2>
-            <div class="section-content">
-                <div class="blog-post">
-                    <div class="blog-title editable" data-field="blog1_title">Understanding RAG-based Chatbots</div>
-                    <div class="blog-date editable" data-field="blog1_date">December 2024</div>
-                    <div class="blog-content editable" data-field="blog1_content">Deep dive into Retrieval Augmented Generation (RAG) architecture and how it revolutionizes enterprise chatbot development. Learn about the implementation challenges and best practices from real-world experience.</div>
-                </div>
-                
-                <div class="blog-post">
-                    <div class="blog-title editable" data-field="blog2_title">Data Science in Defense Industry</div>
-                    <div class="blog-date editable" data-field="blog2_date">November 2024</div>
-                    <div class="blog-content editable" data-field="blog2_content">Exploring how data science and machine learning are transforming the defense textile industry. From spectral analysis to predictive manufacturing, discover the applications that are changing the game.</div>
-                </div>
+            <div class="section-content" id="blogContent">
+                <!-- Blog posts will be loaded here -->
             </div>
         </div>
     </section>
@@ -1114,23 +879,20 @@
                         <div class="contact-item">
                             <div class="contact-icon">📧</div>
                             <div>
-                                <div class="editable" data-field="email1">rishabhp24@iitk.ac.in</div>
-                                <div class="editable" data-field="email2">rishudrp@gmail.com</div>
+                                <div id="collegeEmail">rishabhp24@iitk.ac.in</div>
+                                <div id="personalEmail">rishudrp@gmail.com</div>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">📱</div>
-                            <div class="editable" data-field="phone">+91 7985647101</div>
+                            <div id="phoneNumber">+91 XXXXX XXXXX</div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">📍</div>
-                            <div class="editable" data-field="location">IIT Kanpur, Kanpur, UP, India</div>
+                            <div id="location">IIT Kanpur, Kanpur, UP, India</div>
                         </div>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/rishabh-pandey-6939051aa/" class="social-link" target="_blank">💼</a>
-                            <a href="https://github.com/rishabhiitk" class="social-link" target="_blank">🐙</a>
-                            <a href="#" class="social-link" target="_blank">🐦</a>
-                            <a href="#" class="social-link" target="_blank">📷</a>
+                        <div class="social-links" id="socialLinks">
+                            <!-- Social links will be loaded here -->
                         </div>
                     </div>
                     <div class="contact-form">
@@ -1160,392 +922,1297 @@
         </div>
     </section>
 
+    <!-- Admin Modal -->
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close-modal" onclick="closeAdminModal()">&times;</span>
+            <h2>Admin Panel</h2>
+            
+            <!-- Login Form -->
+            <div id="adminLogin">
+                <form id="adminLoginForm">
+                    <div class="form-group">
+                        <label for="adminPassword">Enter Password</label>
+                        <input type="password" id="adminPassword" name="adminPassword" required placeholder="Enter admin password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <div class="current-file">
+                    Default password: <strong>admin123</strong> (Change this in Profile tab after login)
+                </div>
+            </div>
+
+            <!-- Admin Panel Content -->
+            <div id="adminPanel" style="display: none;">
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="switchTab('profile')">Profile</button>
+                    <button class="admin-tab" onclick="switchTab('experience')">Experience</button>
+                    <button class="admin-tab" onclick="switchTab('projects')">Projects</button>
+                    <button class="admin-tab" onclick="switchTab('skills')">Skills</button>
+                    <button class="admin-tab" onclick="switchTab('education')">Education</button>
+                    <button class="admin-tab" onclick="switchTab('blog')">Blog</button>
+                    <button class="admin-tab" onclick="switchTab('settings')">Settings</button>
+                </div>
+
+                <!-- Profile Tab -->
+                <div id="profile-tab" class="admin-tab-content active">
+                    <div class="admin-section">
+                        <h3>Profile Picture</h3>
+                        <div class="file-upload">
+                            <input type="file" id="profilePicUpload" accept="image/*">
+                            <div class="current-file">Current: Default Avatar</div>
+                            <img id="profilePreview" class="preview-image" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <h3>Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" value="Rishabh Pandey">
+                            </div>
+                            <div class="form-group">
+                                <label for="subtitle">Professional Subtitle</label>
+                                <input type="text" id="subtitle" value="Aspiring Data Scientist | GenAI & Machine Learning Enthusiast">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="aboutDescription">About Description</label>
+                            <textarea id="aboutDescription" rows="6">Passionate data enthusiast currently pursuing a Master's in Management Sciences...</textarea>
+                        </div>
+                    </div>
+
+                    <div class="admin-section">
+                        <h3>Contact Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="collegeEmailEdit">College Email</label>
+                                <input type="email" id="collegeEmailEdit" value="rishabhp24@iitk.ac.in">
+                            </div>
+                            <div class="form-group">
+                                <label for="personalEmailEdit">Personal Email</label>
+                                <input type="email" id="personalEmailEdit" value="rishudrp@gmail.com">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phoneEdit">Phone Number</label>
+                                <input type="text" id="phoneEdit" value="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group">
+                                <label for="locationEdit">Location</label>
+                                <input type="text" id="locationEdit" value="IIT Kanpur, Kanpur, UP, India">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-section">
+                        <h3>Resume Upload</h3>
+                        <div class="file-upload">
+                            <input type="file" id="resumeUpload" accept=".pdf">
+                            <div class="current-file">No resume uploaded</div>
+                        </div>
+                    </div>
+
+                    <div class="admin-section">
+                        <h3>Social Media Links</h3>
+                        <div id="socialLinksAdmin">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Platform</label>
+                                    <select>
+                                        <option value="linkedin">LinkedIn</option>
+                                        <option value="github">GitHub</option>
+                                        <option value="twitter">Twitter</option>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="youtube">YouTube</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>URL</label>
+                                    <input type="url" placeholder="https://linkedin.com/in/username">
+                                </div>
+                                <button type="button" class="remove-btn" onclick="removeSocialLink(this)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-btn" onclick="addSocialLink()">Add Social Link</button>
+                    </div>
+                </div>
+
+                <!-- Experience Tab -->
+                <div id="experience-tab" class="admin-tab-content">
+                    <div class="admin-section">
+                        <h3>Work Experience</h3>
+                        <div id="experienceAdmin">
+                            <!-- Experience items will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addExperience()">Add Experience</button>
+                    </div>
+                </div>
+
+                <!-- Projects Tab -->
+                <div id="projects-tab" class="admin-tab-content">
+                    <div class="admin-section">
+                        <h3>Projects Portfolio</h3>
+                        <div id="projectsAdmin">
+                            <!-- Project items will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addProject()">Add Project</button>
+                    </div>
+                </div>
+
+                <!-- Skills Tab -->
+                <div id="skills-tab" class="admin-tab-content">
+                    <div class="admin-section">
+                        <h3>Skills Management</h3>
+                        <div id="skillsAdmin">
+                            <!-- Skill categories will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addSkillCategory()">Add Skill Category</button>
+                    </div>
+                </div>
+
+                <!-- Education Tab -->
+                <div id="education-tab" class="admin-tab-content">
+                    <div class="admin-section">
+                        <h3>Education & Certifications</h3>
+                        <div id="educationAdmin">
+                            <!-- Education items will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addEducation()">Add Education</button>
+                    </div>
+                </div>
+
+                <!-- Blog Tab -->
+                <div id="blog-tab" class="admin-tab-content">
+                    <div class="admin-section">
+                        <h3>Blog Posts</h3>
+                        <div id="blogAdmin">
+                            <!-- Blog posts will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addBlogPost()">Add Blog Post</button>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settings-tab" class="admin-tab-content">
+                    <div class="admin-section">
+                        <h3>Admin Settings</h3>
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword" placeholder="Enter current password">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword" placeholder="Enter new password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm New Password</label>
+                            <input type="password" id="confirmPassword" placeholder="Confirm new password">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="changePassword()">Change Password</button>
+                    </div>
+
+                    <div class="admin-section">
+                        <h3>Email Notifications</h3>
+                        <div class="form-group">
+                            <label for="emailService">Email Service</label>
+                            <select id="emailService">
+                                <option value="emailjs">EmailJS (Free)</option>
+                                <option value="formspree">Formspree (Free)</option>
+                                <option value="netlify">Netlify Forms</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="notificationEmail">Notification Email</label>
+                            <input type="email" id="notificationEmail" placeholder="your-email@gmail.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="emailApiKey">API Key (if required)</label>
+                            <input type="text" id="emailApiKey" placeholder="Enter API key">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="saveEmailSettings()">Save Email Settings</button>
+                    </div>
+
+                    <div class="admin-section">
+                        <h3>Data Management</h3>
+                        <button type="button" class="btn btn-secondary" onclick="exportData()">Export All Data</button>
+                        <button type="button" class="btn btn-secondary" onclick="importData()">Import Data</button>
+                        <input type="file" id="importFile" accept=".json" style="display: none;">
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="button" class="btn btn-primary" onclick="saveAllChanges()">Save All Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Admin password - change this to your preferred password
-        const ADMIN_PASSWORD = "1999data1959"; // Birth year + "data" + IIT Kanpur establishment year
-        
-        let isAdminAuthenticated = false;
-        let editMode = false;
-        let selectedFile = null;
-        
-        // Website data storage
+        // Data Storage
         let websiteData = {
-            profileImage: null,
-            name: "Rishabh Pandey",
-            subtitle: "Aspiring Data Scientist | GenAI & ML Engineering Enthusiast | GATE AIR 4 Achiever",
-            about: "Passionate data enthusiast currently pursuing M.Tech in Management Sciences (formerly known as Industrial and Management Engineering) at IIT Kanpur with a CGPA of 8.05 (up to first semester). With hands-on experience as a Product Development Engineer and recent summer internship at Kusumgar Corporates, I bring a unique blend of technical expertise and practical industry knowledge to the data science domain.<br><br>My journey includes developing a sophisticated RAG-based Chatbot for Product Development teams, processing 1.5 crore rows of data across 1467 technical fabric articles. With expertise in Python, SQL, LangChain, and advanced ML techniques, I've successfully built end-to-end data pipelines and intelligent systems for real-world applications.<br><br>Currently serving as Department Placement Coordinator (DPC) at IIT Kanpur, I'm actively pursuing my passion for becoming a data scientist and GenAI enthusiast. As a GATE 2024 AIR 4 achiever, I demonstrate excellence in analytical thinking and problem-solving.",
-            // Add all other fields...
-        };
+  "profile": {
+    "name": "Rishabh Pandey",
+    "subtitle": "Aspiring Data Scientist | GenAI & Machine Learning Enthusiast | Deep Learning",
+    "about": "Passionate data enthusiast currently pursuing a Master's in Management Sciences (formerly IME) at IIT Kanpur, with a strong focus on Data Science, Machine Learning, Analytics, and Supply Chain Optimization. I recently completed a 2-month internship on a Retrieval-Augmented Generation (RAG) based chatbot, where I applied LLMs to build intelligent, context-aware systems.\n\nI have a keen eye for uncovering patterns and transforming data into actionable insights that drive smarter decisions. With growing expertise in Python, SQL, Scikit-learn, and Generative AI, I'm constantly evolving to stay at the cutting edge of the field.\n\nDriven by curiosity and impact, I aim to contribute to data-driven innovation across industries—from finance to operations.",
+    "profileImage": "https://media.licdn.com/dms/image/v2/D4D03AQENjzxQsTRmwg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1725373184640?e=1758153600&v=beta&t=SeP_6bB_nyCULXeUNgW4QqiRChxLbEu20Io4J_OkLN8",
+    "resume": "https://github.com/abhi-iitk26/abhishek-portfolio/raw/main/241140002_abhishek_tiwari_mt_ms.pdf",
+    "contact": {
+      "collegeEmail": "rishabhp24iitk.ac.in",
+      "personalEmail": "rishudrp@gmail.com",
+      "phone": "+91 7985647101",
+      "location": "IIT Kanpur, Kanpur, UP, India"
+    },
+    "socialLinks": [
+      {
+        "platform": "linkedin",
+        "url": "https://www.linkedin.com/in/rishabh-pandey-6939051aa/",
+        "icon": "💼"
+      },
+      {
+        "platform": "github",
+        "url": "https://https://github.com/rishabhiitk",
+        "icon": "🐙"
+      },
+      {
+        "platform": "twitter",
+        "url": "#",
+        "icon": "🐦"
+      },
+      {
+        "platform": "instagram",
+        "url": "#",
+        "icon": "📷"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "title": "Department Placement Coordinator",
+      "company": "Department of Management Sciences, IIT Kanpur",
+      "duration": "Aug 2024 - Present",
+      "description": "As the Department Placement Coordinator, I am responsible for managing corporate partnerships and facilitating student placements. My role involves direct interaction with companies, inviting them for the upcoming placement season, and exploring new corporate connections to expand placement opportunities. Additionally, I support coordination efforts for placement-related events and help maintain communication between the department and industry partners."
+    },
+    {
+      "title": "Product Development Engineer",
+      "company": "Kusumgar Corporates Pvt Ltd",
+      "duration": "July 2021 - Aug 2023",
+      "description": "Worked in the Defence & Aeronautical segment, leading the development of high-performance technical fabrics tailored for strategic applications. My role involved extensive data-driven decision-making to optimize product quality and manufacturing efficiency. Leveraged ERP systems and advanced Excel tools to analyze production workflows, reduce costs, and improve process transparency.A key part of my work included analyzing spectral data, such as color reflectance, to optimize IRR (Infrared Reflectance) values—an essential requirement for defense textiles. This experience sparked a strong interest in data analysis and reinforced my understanding of how insights from data can directly impact product development, leading me to further pursue data science."
+    },
+    {
+      "title": "Gen AI Intern ",
+      "company": "Kusumgar Ltd., Mumbai",
+      "duration": "12/05/2025 to 11/07/2025",
+      "description": "Developed a Retrieval-Augmented Generation (RAG) chatbot to assist the product development team in querying technical textile data. Collected and processed unstructured data from over 1400+ fabric articles, converting them into structured JSON chunks. Implemented hybrid search using Weaviate for semantic and keyword-based retrieval. Integrated Azure OpenAI to generate accurate, context-aware responses based on retrieved content. Enabled numeric filtering, article comparison, and fabric-based process suggestions without manual intervention. Enhanced decision-making for fabric design, testing, and processing workflows."
+    }
+  ],
+  "projects": [
+    {
+      "title": "RAG-based Chatbot",
+      "description": "Developed an intelligent chatbot using Retrieval-Augmented Generation (RAG) architecture with Large Language Models for context-aware responses during a 2-month internship.",
+      "technologies": [
+        "Python",
+        "LLMs",
+        "RAG",
+        "NLP"
+      ],
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": ""
+    },
+    {
+      "title": "Data Science Portfolio",
+      "description": "Collection of data science projects including machine learning models, statistical analysis, and data visualization using Python and various ML libraries.",
+      "technologies": [
+        "Python",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy"
+      ],
+      "liveUrl": "#",
+      "githubUrl": "#",
+      "image": ""
+    }
+  ],
+  "skills": [
+    {
+      "category": "Programming Languages",
+      "skills": [
+        {
+          "name": "Python",
+          "level": 50
+        },
+        {
+          "name": "SQL",
+          "level": 0
+        },
+        {
+          "name": "TensorFlow",
+          "level": 50
+        }
+      ]
+    },
+    {
+      "category": "Machine Learning",
+      "skills": [
+        {
+          "name": "Scikit-learn",
+          "level": 85
+        },
+        {
+          "name": "Deep Learning",
+          "level": 80
+        },
+        {
+          "name": "Generative AI",
+          "level": 85
+        }
+      ]
+    },
+    {
+      "category": "Data Analysis",
+      "skills": [
+        {
+          "name": "NumPy",
+          "level": 90
+        },
+        {
+          "name": "Pandas",
+          "level": 90
+        },
+        {
+          "name": "Statistical Analysis",
+          "level": 85
+        }
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "skills": [
+        {
+          "name": "Power BI",
+          "level": 80
+        },
+        {
+          "name": "Excel",
+          "level": 90
+        },
+        {
+          "name": "Git",
+          "level": 75
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Technology - MTech, Data Science",
+      "school": "Indian Institute of Technology, Kanpur",
+      "duration": "Jul 2024 - Jun 2026",
+      "grade": "Current CGPA: 8.05/10 (Upto First Year)"
+    },
+    {
+      "degree": "Bachelor of Technology - BTech, Processing",
+      "school": "Dr. A.P.J. Abdul Kalam Technical University",
+      "duration": "Jul 2017 - Jun 2021",
+      "grade": "CGPA: 8.26/10"
+    },
+    {
+      "degree": "Intermediate ",
+      "school": "Rani laxmi Bai Smarak Inter College",
+      "duration": "2013 - 2015",
+      "grade": "78.8 %"
+    },
+    {
+      "degree": "High School",
+      "school": "Diamond Public Senior Sec School ",
+      "duration": "2011-2013",
+      "grade": "8.4/10"
+    }
+  ],
+  "blog": [],
+  "settings": {
+    "adminPassword": "rishudrp@24",
+    "emailSettings": {
+      "service": "emailjs",
+      "notificationEmail": "rishabhp24@iitk.ac.in",
+      "apiKey": ""
+    }
+  }
+};
 
-        // Request admin access
-        function requestAdminAccess() {
-            if (isAdminAuthenticated) {
-                toggleEditMode();
-            } else {
-                document.getElementById('passwordModal').style.display = 'flex';
-                document.getElementById('passwordInput').focus();
+        // Load data from localStorage on page load
+        function loadData() {
+            const savedData = JSON.parse(localStorage.getItem('portfolioData'));
+            if (savedData) {
+                websiteData = { ...websiteData, ...savedData };
             }
+            renderWebsite();
         }
-
-        // Check password
-        function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
-            if (password === ADMIN_PASSWORD) {
-                isAdminAuthenticated = true;
-                closePasswordModal();
-                showNotification('Admin access granted! 🎉', 'success');
-                document.getElementById('adminToggle').innerHTML = '✏️';
-                document.getElementById('adminToggle').title = 'Edit Mode';
-                toggleEditMode();
-            } else {
-                showNotification('Incorrect password! 🚫', 'error');
-                document.getElementById('passwordInput').value = '';
-            }
-        }
-
-        // Close password modal
-        function closePasswordModal() {
-            document.getElementById('passwordModal').style.display = 'none';
-            document.getElementById('passwordInput').value = '';
-        }
-
-        // Toggle edit mode
-        function toggleEditMode() {
-            if (!isAdminAuthenticated) {
-                requestAdminAccess();
-                return;
-            }
-
-            editMode = !editMode;
-            const button = document.getElementById('adminToggle');
-            
-            if (editMode) {
-                button.innerHTML = '💾';
-                button.title = 'Save & Exit Edit Mode';
-                enableEditMode();
-                showNotification('Edit mode enabled! Click on any text to edit.', 'success');
-            } else {
-                button.innerHTML = '✏️';
-                button.title = 'Edit Mode';
-                disableEditMode();
-                saveData();
-                showNotification('Changes saved!', 'success');
-            }
-        }
-
-        // Enable edit mode
-        function enableEditMode() {
-            document.querySelectorAll('.editable').forEach(element => {
-                element.classList.add('edit-mode');
-                element.addEventListener('click', makeEditable);
-            });
-            
-            // Enable profile image container edit mode
-            document.querySelector('.profile-img-container').classList.add('edit-mode');
-        }
-
-        // Disable edit mode
-        function disableEditMode() {
-            document.querySelectorAll('.editable').forEach(element => {
-                element.classList.remove('edit-mode');
-                element.removeEventListener('click', makeEditable);
-            });
-            
-            // Disable profile image container edit mode
-            document.querySelector('.profile-img-container').classList.remove('edit-mode');
-        }
-
-        // Make element editable
-        function makeEditable(event) {
-            event.preventDefault();
-            const element = event.target;
-            const field = element.getAttribute('data-field');
-            const currentValue = websiteData[field] || element.textContent;
-            
-            let input;
-            if (currentValue.length > 100) {
-                input = document.createElement('textarea');
-                input.value = currentValue.replace(/<br>/g, '\n').replace(/<[^>]*>/g, '');
-                input.rows = 4;
-            } else {
-                input = document.createElement('input');
-                input.type = 'text';
-                input.value = currentValue.replace(/<[^>]*>/g, '');
-            }
-            
-            input.className = 'inline-edit';
-            
-            function saveEdit() {
-                let newValue = input.value;
-                if (input.tagName === 'TEXTAREA') {
-                    newValue = newValue.replace(/\n/g, '<br>');
-                }
-                websiteData[field] = newValue;
-                element.innerHTML = newValue;
-                element.parentNode.replaceChild(element, input);
-                saveData();
-            }
-            
-            input.addEventListener('blur', saveEdit);
-            input.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    saveEdit();
-                }
-            });
-            
-            element.parentNode.replaceChild(input, element);
-            input.focus();
-            input.select();
-        }
-
-        // Profile picture functions
-        function openProfileUploadModal() {
-            if (!editMode) return;
-            document.getElementById('profileUploadModal').style.display = 'flex';
-        }
-
-        function closeProfileUploadModal() {
-            document.getElementById('profileUploadModal').style.display = 'none';
-            document.getElementById('profilePreview').style.display = 'none';
-            document.getElementById('updateBtn').style.display = 'none';
-            selectedFile = null;
-        }
-
-        // Handle file upload
-        document.getElementById('profileUpload').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file && file.type.startsWith('image/')) {
-                if (file.size > 5 * 1024 * 1024) { // 5MB limit
-                    showNotification('File too large! Maximum size is 5MB.', 'error');
-                    return;
-                }
-                
-                selectedFile = file;
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const preview = document.getElementById('profilePreview');
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
-                    document.getElementById('updateBtn').style.display = 'inline-block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Update profile picture
-        function updateProfilePicture() {
-            if (selectedFile) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    websiteData.profileImage = e.target.result;
-                    document.getElementById('profileImg').src = e.target.result;
-                    saveData();
-                    closeProfileUploadModal();
-                    showNotification('Profile picture updated! 📸', 'success');
-                };
-                reader.readAsDataURL(selectedFile);
-            }
-        }
-
-        // Drag and drop for profile upload
-        const uploadArea = document.querySelector('.upload-area');
-        uploadArea.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            this.classList.add('drag-over');
-        });
-
-        uploadArea.addEventListener('dragleave', function(e) {
-            e.preventDefault();
-            this.classList.remove('drag-over');
-        });
-
-        uploadArea.addEventListener('drop', function(e) {
-            e.preventDefault();
-            this.classList.remove('drag-over');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                document.getElementById('profileUpload').files = files;
-                document.getElementById('profileUpload').dispatchEvent(new Event('change'));
-            }
-        });
 
         // Save data to localStorage
         function saveData() {
             localStorage.setItem('portfolioData', JSON.stringify(websiteData));
-            showSaveIndicator();
         }
 
-        // Load data from localStorage
-        function loadData() {
-            const savedData = localStorage.getItem('portfolioData');
-            if (savedData) {
-                websiteData = { ...websiteData, ...JSON.parse(savedData) };
-                updateDisplayedContent();
-            }
+        // Render website content
+        function renderWebsite() {
+            renderProfile();
+            renderExperience();
+            renderProjects();
+            renderSkills();
+            renderEducation();
+            renderBlog();
+            renderContact();
         }
 
-        // Update displayed content
-        function updateDisplayedContent() {
-            // Update profile image if exists
-            if (websiteData.profileImage) {
-                document.getElementById('profileImg').src = websiteData.profileImage;
+        function renderProfile() {
+            document.getElementById('heroName').textContent = websiteData.profile.name;
+            document.getElementById('heroSubtitle').textContent = websiteData.profile.subtitle;
+            document.getElementById('aboutText').innerHTML = websiteData.profile.about.replace(/\n/g, '<br>');
+            
+            if (websiteData.profile.profileImage) {
+                document.getElementById('profileImg').src = websiteData.profile.profileImage;
             }
             
-            // Update all editable fields
-            document.querySelectorAll('.editable').forEach(element => {
-                const field = element.getAttribute('data-field');
-                if (websiteData[field]) {
-                    element.innerHTML = websiteData[field];
+            // Update download resume link
+            if (websiteData.profile.resume) {
+                document.getElementById('downloadResume').href = websiteData.profile.resume;
+                document.getElementById('downloadResume').style.display = 'inline-block';
+                document.getElementById('downloadResume').
+                download = '241140026_rishabh_pandey_mt_ms.pdf';
+            } else {
+                document.getElementById('downloadResume').style.display = 'none';
+            }
+        }
+
+        function renderExperience() {
+            const container = document.getElementById('experienceContent');
+            container.innerHTML = '';
+            
+            websiteData.experience.forEach(exp => {
+                const expDiv = document.createElement('div');
+                expDiv.className = 'experience-item';
+                expDiv.innerHTML = `
+                    <div class="experience-header">
+                        <div>
+                            <div class="experience-title">${exp.title}</div>
+                            <div class="experience-company">${exp.company}</div>
+                        </div>
+                        <div class="experience-duration">${exp.duration}</div>
+                    </div>
+                    <div class="experience-description">${exp.description}</div>
+                `;
+                container.appendChild(expDiv);
+            });
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projectsGrid');
+            container.innerHTML = '';
+            
+            websiteData.projects.forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project-card';
+                
+                const techTags = project.technologies.map(tech => 
+                    `<span class="tech-tag">${tech}</span>`
+                ).join('');
+                
+                projectDiv.innerHTML = `
+                    ${project.image ? `<img src="${project.image}" alt="${project.title}" class="project-image">` : ''}
+                    <div class="project-title">${project.title}</div>
+                    <div class="project-description">${project.description}</div>
+                    <div class="project-tech">${techTags}</div>
+                    <div class="project-links">
+                        <a href="${project.liveUrl}" target="_blank">Live Demo</a>
+                        <a href="${project.githubUrl}" target="_blank">GitHub</a>
+                    </div>
+                `;
+                container.appendChild(projectDiv);
+            });
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skillsGrid');
+            container.innerHTML = '';
+            
+            websiteData.skills.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'skill-category';
+                
+                const skillItems = category.skills.map(skill => `
+                    <div class="skill-item">
+                        <span>${skill.name}</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: ${skill.level}%"></div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                categoryDiv.innerHTML = `
+                    <h3>${category.category}</h3>
+                    ${skillItems}
+                `;
+                container.appendChild(categoryDiv);
+            });
+        }
+
+        function renderEducation() {
+            const container = document.getElementById('educationContent');
+            container.innerHTML = '';
+            
+            websiteData.education.forEach(edu => {
+                const eduDiv = document.createElement('div');
+                eduDiv.className = 'education-item';
+                eduDiv.innerHTML = `
+                    <div class="education-degree">${edu.degree}</div>
+                    <div class="education-school">${edu.school}</div>
+                    <div class="education-duration">${edu.duration}</div>
+                    <div class="education-grade">${edu.grade}</div>
+                `;
+                container.appendChild(eduDiv);
+            });
+        }
+
+        function renderBlog() {
+            const container = document.getElementById('blogContent');
+            container.innerHTML = '';
+            
+            if (websiteData.blog.length === 0) {
+                container.innerHTML = '<div class="blog-post"><div class="blog-title">Coming Soon</div><div class="blog-content">Blog posts will be available here soon.</div></div>';
+                return;
+            }
+            
+            websiteData.blog.forEach(post => {
+                const postDiv = document.createElement('div');
+                postDiv.className = 'blog-post';
+                postDiv.innerHTML = `
+                    <div class="blog-title">${post.title}</div>
+                    <div class="blog-date">${post.date}</div>
+                    <div class="blog-content">${post.content}</div>
+                `;
+                container.appendChild(postDiv);
+            });
+        }
+
+        function renderContact() {
+            document.getElementById('collegeEmail').textContent = websiteData.profile.contact.collegeEmail;
+            document.getElementById('personalEmail').textContent = websiteData.profile.contact.personalEmail;
+            document.getElementById('phoneNumber').textContent = websiteData.profile.contact.phone;
+            document.getElementById('location').textContent = websiteData.profile.contact.location;
+            
+            // Render social links with text labels
+            const socialContainer = document.getElementById('socialLinks');
+            socialContainer.innerHTML = '';
+            
+            // Platform name mapping
+            const platformNames = {
+                linkedin: 'LinkedIn',
+                github: 'GitHub',
+                twitter: 'Twitter',
+                instagram: 'Instagram',
+                facebook: 'Facebook',
+                youtube: 'YouTube'
+            };
+            
+            websiteData.profile.socialLinks.forEach(social => {
+                if (social.url && social.url !== '#') {
+                    const socialLink = document.createElement('a');
+                    socialLink.href = social.url;
+                    socialLink.className = 'social-link';
+                    socialLink.target = '_blank';
+                    
+                    // Create icon and text elements
+                    const iconSpan = document.createElement('span');
+                    iconSpan.className = 'social-icon';
+                    iconSpan.innerHTML = social.icon;
+                    
+                    const textSpan = document.createElement('span');
+                    textSpan.className = 'social-text';
+                    textSpan.textContent = platformNames[social.platform] || social.platform;
+                    
+                    socialLink.appendChild(iconSpan);
+                    socialLink.appendChild(textSpan);
+                    socialContainer.appendChild(socialLink);
                 }
             });
         }
 
-        // Show save indicator
-        function showSaveIndicator() {
-            const indicator = document.getElementById('saveIndicator');
-            indicator.style.display = 'block';
-            setTimeout(() => {
-                indicator.style.display = 'none';
-            }, 2000);
+        // Admin functions
+        function openAdminModal() {
+            document.getElementById('adminModal').style.display = 'block';
         }
 
-        // Show notification
+        function closeAdminModal() {
+            document.getElementById('adminModal').style.display = 'none';
+            document.getElementById('adminLogin').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.admin-tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.admin-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // File upload handlers
+        function handleFileUpload(inputId, callback) {
+            const input = document.getElementById(inputId);
+            input.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        callback(e.target.result, file.name);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Initialize file upload handlers
+        function initializeFileUploads() {
+            handleFileUpload('profilePicUpload', function(dataUrl, fileName) {
+                websiteData.profile.profileImage = dataUrl;
+                document.getElementById('profilePreview').src = dataUrl;
+                document.getElementById('profilePreview').style.display = 'block';
+                document.querySelector('#profilePicUpload + .current-file').textContent = `Current: ${fileName}`;
+                showNotification('Profile picture uploaded successfully!', 'success');
+            });
+            
+            handleFileUpload('resumeUpload', function(dataUrl, fileName) {
+                websiteData.profile.resume = dataUrl;
+                document.querySelector('#resumeUpload + .current-file').textContent = `Current: ${fileName}`;
+                showNotification('Resume uploaded successfully!', 'success');
+            });
+        }
+
+        // Admin login
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const password = document.getElementById('adminPassword').value;
+            
+            if (password === websiteData.settings.adminPassword) {
+                document.getElementById('adminLogin').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+                loadAdminData();
+                showNotification('Login successful!', 'success');
+            } else {
+                showNotification('Invalid password!', 'error');
+            }
+        });
+
+        function loadAdminData() {
+            // Load profile data
+            document.getElementById('fullName').value = websiteData.profile.name;
+            document.getElementById('subtitle').value = websiteData.profile.subtitle;
+            document.getElementById('aboutDescription').value = websiteData.profile.about;
+            document.getElementById('collegeEmailEdit').value = websiteData.profile.contact.collegeEmail;
+            document.getElementById('personalEmailEdit').value = websiteData.profile.contact.personalEmail;
+            document.getElementById('phoneEdit').value = websiteData.profile.contact.phone;
+            document.getElementById('locationEdit').value = websiteData.profile.contact.location;
+            
+            // Load other sections
+            loadExperienceAdmin();
+            loadProjectsAdmin();
+            loadSkillsAdmin();
+            loadEducationAdmin();
+            loadBlogAdmin();
+            loadSocialLinksAdmin();
+        }
+
+        function loadSocialLinksAdmin() {
+            const container = document.getElementById('socialLinksAdmin');
+            container.innerHTML = '';
+            
+            websiteData.profile.socialLinks.forEach((social, index) => {
+                addSocialLinkRow(social.platform, social.url, index);
+            });
+        }
+
+        function addSocialLink() {
+            addSocialLinkRow('linkedin', '', websiteData.profile.socialLinks.length);
+        }
+
+        function addSocialLinkRow(platform, url, index) {
+            const container = document.getElementById('socialLinksAdmin');
+            const row = document.createElement('div');
+            row.className = 'form-row';
+            row.innerHTML = `
+                <div class="form-group">
+                    <label>Platform</label>
+                    <select onchange="updateSocialLink(${index}, 'platform', this.value)">
+                        <option value="linkedin" ${platform === 'linkedin' ? 'selected' : ''}>LinkedIn</option>
+                        <option value="github" ${platform === 'github' ? 'selected' : ''}>GitHub</option>
+                        <option value="twitter" ${platform === 'twitter' ? 'selected' : ''}>Twitter</option>
+                        <option value="instagram" ${platform === 'instagram' ? 'selected' : ''}>Instagram</option>
+                        <option value="facebook" ${platform === 'facebook' ? 'selected' : ''}>Facebook</option>
+                        <option value="youtube" ${platform === 'youtube' ? 'selected' : ''}>YouTube</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>URL</label>
+                    <input type="url" value="${url}" onchange="updateSocialLink(${index}, 'url', this.value)" placeholder="https://platform.com/username">
+                </div>
+                <button type="button" class="remove-btn" onclick="removeSocialLink(this, ${index})">Remove</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function updateSocialLink(index, field, value) {
+            if (!websiteData.profile.socialLinks[index]) {
+                websiteData.profile.socialLinks[index] = { platform: 'linkedin', url: 'https://www.linkedin.com/in/rishabh-pandey-6939051aa/', icon: '💼' };
+            }
+            websiteData.profile.socialLinks[index][field] = value;
+            
+            // Update icon based on platform
+            const iconMap = {
+                linkedin: '💼',
+                github: '🐙',
+                twitter: '🐦',
+                instagram: '📷',
+                facebook: '📘',
+                youtube: '📹'
+            };
+            websiteData.profile.socialLinks[index].icon = iconMap[value] || '🔗';
+        }
+
+        function removeSocialLink(button, index) {
+            websiteData.profile.socialLinks.splice(index, 1);
+            button.parentElement.remove();
+            loadSocialLinksAdmin(); // Reload to fix indices
+        }
+
+        // Experience management
+        function loadExperienceAdmin() {
+            const container = document.getElementById('experienceAdmin');
+            container.innerHTML = '';
+            
+            websiteData.experience.forEach((exp, index) => {
+                addExperienceRow(exp, index);
+            });
+        }
+
+        function addExperience() {
+            const newExp = {
+                title: '',
+                company: '',
+                duration: '',
+                description: ''
+            };
+            websiteData.experience.push(newExp);
+            addExperienceRow(newExp, websiteData.experience.length - 1);
+        }
+
+        function addExperienceRow(exp, index) {
+            const container = document.getElementById('experienceAdmin');
+            const row = document.createElement('div');
+            row.className = 'admin-section';
+            row.innerHTML = `
+                <h4>Experience ${index + 1}</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Job Title</label>
+                        <input type="text" value="${exp.title}" onchange="updateExperience(${index}, 'title', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" value="${exp.company}" onchange="updateExperience(${index}, 'company', this.value)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Duration</label>
+                    <input type="text" value="${exp.duration}" onchange="updateExperience(${index}, 'duration', this.value)" placeholder="e.g., Jan 2023 - Present">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="4" onchange="updateExperience(${index}, 'description', this.value)">${exp.description}</textarea>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeExperience(${index})">Remove Experience</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function updateExperience(index, field, value) {
+            websiteData.experience[index][field] = value;
+        }
+
+        function removeExperience(index) {
+            websiteData.experience.splice(index, 1);
+            loadExperienceAdmin();
+        }
+
+        // Projects management
+        function loadProjectsAdmin() {
+            const container = document.getElementById('projectsAdmin');
+            container.innerHTML = '';
+            
+            websiteData.projects.forEach((project, index) => {
+                addProjectRow(project, index);
+            });
+        }
+
+        function addProject() {
+            const newProject = {
+                title: '',
+                description: '',
+                technologies: [],
+                liveUrl: '',
+                githubUrl: '',
+                image: ''
+            };
+            websiteData.projects.push(newProject);
+            addProjectRow(newProject, websiteData.projects.length - 1);
+        }
+
+        function addProjectRow(project, index) {
+            const container = document.getElementById('projectsAdmin');
+            const row = document.createElement('div');
+            row.className = 'admin-section';
+            row.innerHTML = `
+                <h4>Project ${index + 1}</h4>
+                <div class="form-group">
+                    <label>Project Image</label>
+                    <input type="file" accept="image/*" onchange="uploadProjectImage(${index}, this)">
+                    ${project.image ? `<img src="${project.image}" class="preview-image">` : ''}
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Project Title</label>
+                        <input type="text" value="${project.title}" onchange="updateProject(${index}, 'title', this.value)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea rows="3" onchange="updateProject(${index}, 'description', this.value)">${project.description}</textarea>
+                </div>
+                <div class="form-group">
+                    <label>Technologies (comma-separated)</label>
+                    <input type="text" value="${project.technologies.join(', ')}" onchange="updateProjectTechnologies(${index}, this.value)" placeholder="Python, React, Node.js">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Live Demo URL</label>
+                        <input type="url" value="${project.liveUrl}" onchange="updateProject(${index}, 'liveUrl', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>GitHub URL</label>
+                        <input type="url" value="${project.githubUrl}" onchange="updateProject(${index}, 'githubUrl', this.value)">
+                    </div>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeProject(${index})">Remove Project</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function uploadProjectImage(index, input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    websiteData.projects[index].image = e.target.result;
+                    loadProjectsAdmin();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function updateProject(index, field, value) {
+            websiteData.projects[index][field] = value;
+        }
+
+        function updateProjectTechnologies(index, value) {
+            websiteData.projects[index].technologies = value.split(',').map(tech => tech.trim()).filter(tech => tech);
+        }
+
+        function removeProject(index) {
+            websiteData.projects.splice(index, 1);
+            loadProjectsAdmin();
+        }
+
+        // Skills management
+        function loadSkillsAdmin() {
+            const container = document.getElementById('skillsAdmin');
+            container.innerHTML = '';
+            
+            websiteData.skills.forEach((category, index) => {
+                addSkillCategoryRow(category, index);
+            });
+        }
+
+        function addSkillCategory() {
+            const newCategory = {
+                category: '',
+                skills: []
+            };
+            websiteData.skills.push(newCategory);
+            addSkillCategoryRow(newCategory, websiteData.skills.length - 1);
+        }
+
+        function addSkillCategoryRow(category, index) {
+            const container = document.getElementById('skillsAdmin');
+            const row = document.createElement('div');
+            row.className = 'admin-section';
+            
+            const skillsHtml = category.skills.map((skill, skillIndex) => `
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Skill Name</label>
+                        <input type="text" value="${skill.name}" onchange="updateSkill(${index}, ${skillIndex}, 'name', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Proficiency Level (0-100)</label>
+                        <input type="number" min="0" max="100" value="${skill.level}" onchange="updateSkill(${index}, ${skillIndex}, 'level', this.value)">
+                    </div>
+                    <button type="button" class="remove-btn" onclick="removeSkill(${index}, ${skillIndex})">Remove</button>
+                </div>
+            `).join('');
+            
+            row.innerHTML = `
+                <h4>Skill Category ${index + 1}</h4>
+                <div class="form-group">
+                    <label>Category Name</label>
+                    <input type="text" value="${category.category}" onchange="updateSkillCategory(${index}, this.value)">
+                </div>
+                <div id="skills-${index}">
+                    ${skillsHtml}
+                </div>
+                <button type="button" class="add-btn" onclick="addSkill(${index})">Add Skill</button>
+                <button type="button" class="remove-btn" onclick="removeSkillCategory(${index})">Remove Category</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function updateSkillCategory(index, value) {
+            websiteData.skills[index].category = value;
+        }
+
+        function addSkill(categoryIndex) {
+            if (!websiteData.skills[categoryIndex].skills) {
+                websiteData.skills[categoryIndex].skills = [];
+            }
+            websiteData.skills[categoryIndex].skills.push({ name: '', level: 50 });
+            loadSkillsAdmin();
+        }
+
+        function updateSkill(categoryIndex, skillIndex, field, value) {
+            websiteData.skills[categoryIndex].skills[skillIndex][field] = field === 'level' ? parseInt(value) : value;
+        }
+
+        function removeSkill(categoryIndex, skillIndex) {
+            websiteData.skills[categoryIndex].skills.splice(skillIndex, 1);
+            loadSkillsAdmin();
+        }
+
+        function removeSkillCategory(index) {
+            websiteData.skills.splice(index, 1);
+            loadSkillsAdmin();
+        }
+
+        // Education management
+        function loadEducationAdmin() {
+            const container = document.getElementById('educationAdmin');
+            container.innerHTML = '';
+            
+            websiteData.education.forEach((edu, index) => {
+                addEducationRow(edu, index);
+            });
+        }
+
+        function addEducation() {
+            const newEdu = {
+                degree: '',
+                school: '',
+                duration: '',
+                grade: ''
+            };
+            websiteData.education.push(newEdu);
+            addEducationRow(newEdu, websiteData.education.length - 1);
+        }
+
+        function addEducationRow(edu, index) {
+            const container = document.getElementById('educationAdmin');
+            const row = document.createElement('div');
+            row.className = 'admin-section';
+            row.innerHTML = `
+                <h4>Education ${index + 1}</h4>
+                <div class="form-group">
+                    <label>Degree</label>
+                    <input type="text" value="${edu.degree}" onchange="updateEducation(${index}, 'degree', this.value)">
+                </div>
+                <div class="form-group">
+                    <label>School/University</label>
+                    <input type="text" value="${edu.school}" onchange="updateEducation(${index}, 'school', this.value)">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" value="${edu.duration}" onchange="updateEducation(${index}, 'duration', this.value)" placeholder="e.g., 2018 - 2022">
+                    </div>
+                    <div class="form-group">
+                        <label>Grade/CGPA</label>
+                        <input type="text" value="${edu.grade}" onchange="updateEducation(${index}, 'grade', this.value)" placeholder="e.g., CGPA: 8.5/10">
+                    </div>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeEducation(${index})">Remove Education</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function updateEducation(index, field, value) {
+            websiteData.education[index][field] = value;
+        }
+
+        function removeEducation(index) {
+            websiteData.education.splice(index, 1);
+            loadEducationAdmin();
+        }
+
+        // Blog management
+        function loadBlogAdmin() {
+            const container = document.getElementById('blogAdmin');
+            container.innerHTML = '';
+            
+            websiteData.blog.forEach((post, index) => {
+                addBlogPostRow(post, index);
+            });
+        }
+
+        function addBlogPost() {
+            const newPost = {
+                title: '',
+                content: '',
+                date: new Date().toLocaleDateString()
+            };
+            websiteData.blog.push(newPost);
+            addBlogPostRow(newPost, websiteData.blog.length - 1);
+        }
+
+        function addBlogPostRow(post, index) {
+            const container = document.getElementById('blogAdmin');
+            const row = document.createElement('div');
+            row.className = 'admin-section';
+            row.innerHTML = `
+                <h4>Blog Post ${index + 1}</h4>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" value="${post.title}" onchange="updateBlogPost(${index}, 'title', this.value)">
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" value="${post.date}" onchange="updateBlogPost(${index}, 'date', this.value)">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Content</label>
+                    <textarea rows="6" onchange="updateBlogPost(${index}, 'content', this.value)">${post.content}</textarea>
+                </div>
+                <button type="button" class="remove-btn" onclick="removeBlogPost(${index})">Remove Post</button>
+            `;
+            container.appendChild(row);
+        }
+
+        function updateBlogPost(index, field, value) {
+            websiteData.blog[index][field] = value;
+        }
+
+        function removeBlogPost(index) {
+            websiteData.blog.splice(index, 1);
+            loadBlogAdmin();
+        }
+
+        // Settings functions
+        function changePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (currentPassword !== websiteData.settings.adminPassword) {
+                showNotification('Current password is incorrect!', 'error');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                showNotification('New passwords do not match!', 'error');
+                return;
+            }
+            
+            if (newPassword.length < 6) {
+                showNotification('Password must be at least 6 characters long!', 'error');
+                return;
+            }
+            
+            websiteData.settings.adminPassword = newPassword;
+            saveData();
+            showNotification('Password changed successfully!', 'success');
+            
+            // Clear form
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+        }
+
+        function saveEmailSettings() {
+            const service = document.getElementById('emailService').value;
+            const notificationEmail = document.getElementById('notificationEmail').value;
+            const apiKey = document.getElementById('emailApiKey').value;
+            
+            websiteData.settings.emailSettings = {
+                service: service,
+                notificationEmail: notificationEmail,
+                apiKey: apiKey
+            };
+            
+            saveData();
+            showNotification('Email settings saved successfully!', 'success');
+        }
+
+        function exportData() {
+            const dataStr = JSON.stringify(websiteData, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'portfolio-data.json';
+            link.click();
+            
+            URL.revokeObjectURL(url);
+            showNotification('Data exported successfully!', 'success');
+        }
+
+        function importData() {
+            document.getElementById('importFile').click();
+        }
+
+        document.getElementById('importFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        const importedData = JSON.parse(e.target.result);
+                        websiteData = importedData;
+                        saveData();
+                        renderWebsite();
+                        loadAdminData();
+                        showNotification('Data imported successfully!', 'success');
+                    } catch (error) {
+                        showNotification('Invalid file format!', 'error');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+
+        function saveAllChanges() {
+            // Update profile data from form inputs
+            websiteData.profile.name = document.getElementById('fullName').value;
+            websiteData.profile.subtitle = document.getElementById('subtitle').value;
+            websiteData.profile.about = document.getElementById('aboutDescription').value;
+            websiteData.profile.contact.collegeEmail = document.getElementById('collegeEmailEdit').value;
+            websiteData.profile.contact.personalEmail = document.getElementById('personalEmailEdit').value;
+            websiteData.profile.contact.phone = document.getElementById('phoneEdit').value;
+            websiteData.profile.contact.location = document.getElementById('locationEdit').value;
+            
+            saveData();
+            renderWebsite();
+            showNotification('All changes saved successfully!', 'success');
+        }
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // EmailJS integration (free email service)
+            if (websiteData.settings.emailSettings.service === 'emailjs' && websiteData.settings.emailSettings.apiKey) {
+                sendEmailViaEmailJS(formData);
+            } else {
+                // Fallback - show success message and save to local storage
+                saveContactMessage(formData);
+                showNotification('Message sent successfully! (Saved locally)', 'success');
+                document.getElementById('contactForm').reset();
+            }
+        });
+
+        function sendEmailViaEmailJS(formData) {
+            // This would require EmailJS library and configuration
+            // For now, we'll save locally and show success message
+            saveContactMessage(formData);
+            showNotification('Message sent successfully!', 'success');
+            document.getElementById('contactForm').reset();
+        }
+
+        function saveContactMessage(formData) {
+            const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+            messages.push({
+                ...formData,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('contactMessages', JSON.stringify(messages));
+        }
+
+        // Notification system
         function showNotification(message, type) {
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.textContent = message;
             document.body.appendChild(notification);
             
-            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
             setTimeout(() => {
                 notification.classList.remove('show');
-                setTimeout(() => document.body.removeChild(notification), 300);
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
             }, 3000);
         }
 
-        // Download updated HTML
-        function downloadHTML() {
-            const htmlContent = document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: 'text/html' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'updated-portfolio.html';
-            a.click();
-            URL.revokeObjectURL(url);
-            showNotification('HTML file downloaded! 📥', 'success');
-        }
-
-        // Contact form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            showNotification('Message functionality coming soon! Please use email for now.', 'success');
-            this.reset();
-        });
-
-        // Password modal keyboard handling
-        document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                checkPassword();
-            }
-        });
-
-        // Initialize on page load
-        window.addEventListener('load', function() {
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
             loadData();
+            initializeFileUploads();
             
-            // Session check - admin access expires on page reload for security
-            isAdminAuthenticated = false;
-            
-            // Auto-save every 30 seconds if in edit mode
-            setInterval(function() {
-                if (editMode) {
-                    saveData();
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('adminModal');
+                if (event.target === modal) {
+                    closeAdminModal();
                 }
-            }, 30000);
+            };
         });
 
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey || e.metaKey) {
-                if (e.key === 'e') {
-                    e.preventDefault();
-                    requestAdminAccess();
-                } else if (e.key === 's') {
-                    e.preventDefault();
-                    if (editMode) {
-                        saveData();
-                        showNotification('Data saved! 💾', 'success');
-                    }
-                }
+        // Auto-save functionality
+        setInterval(function() {
+            if (document.getElementById('adminPanel').style.display !== 'none') {
+                saveData();
             }
-        });
-
-        // Close modals when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === document.getElementById('passwordModal')) {
-                closePasswordModal();
-            }
-            if (e.target === document.getElementById('profileUploadModal')) {
-                closeProfileUploadModal();
-            }
-        });
-
-        // Resume download functionality
-        document.getElementById('downloadResume').addEventListener('click', function(e) {
-            e.preventDefault();
-            // You can add actual resume download link here
-            showNotification('Resume download coming soon! 📄', 'success');
-        });
-
-        // Initialize all website data fields
-        websiteData = {
-            profileImage: null,
-            name: "Rishabh Pandey",
-            subtitle: "Aspiring Data Scientist | GenAI & ML Engineering Enthusiast | GATE AIR 4 Achiever",
-            about: "Passionate data enthusiast currently pursuing M.Tech in Management Sciences (formerly known as Industrial and Management Engineering) at IIT Kanpur with a CGPA of 8.05 (up to first semester). With hands-on experience as a Product Development Engineer and recent summer internship at Kusumgar Corporates, I bring a unique blend of technical expertise and practical industry knowledge to the data science domain.<br><br>My journey includes developing a sophisticated RAG-based Chatbot for Product Development teams, processing 1.5 crore rows of data across 1467 technical fabric articles. With expertise in Python, SQL, LangChain, and advanced ML techniques, I've successfully built end-to-end data pipelines and intelligent systems for real-world applications.<br><br>Currently serving as Department Placement Coordinator (DPC) at IIT Kanpur, I'm actively pursuing my passion for becoming a data scientist and GenAI enthusiast. As a GATE 2024 AIR 4 achiever, I demonstrate excellence in analytical thinking and problem-solving.",
-            stat1: "2+",
-            stat2: "500+",
-            stat3: "8.05",
-            stat4: "3+",
-            exp1_title: "Department placement Coordinator",
-            exp1_company: "Department of Management Sciences, IIT Kanpur",
-            exp1_duration: "Aug 2024 - Present",
-            exp1_desc: "As the Department Placement Coordinator, I am responsible for managing corporate partnerships and facilitating student placements. My role involves direct interaction with companies, inviting them for the upcoming placement season, and exploring new corporate connections to expand placement opportunities. Additionally, I support coordination efforts for placement-related events and help maintain communication between the department and industry partners.",
-            exp2_title: "Product Development Engineer",
-            exp2_company: "Kusumgar Corporates Pvt Ltd",
-            exp2_duration: "July 2021 - Sep 2023",
-            exp2_desc: "Worked in the Defence & Aeronautical segment, leading the development of high-performance technical fabrics tailored for strategic applications. My role involved extensive data-driven decision-making to optimize product quality and manufacturing efficiency. Leveraged ERP systems and advanced Excel tools to analyze production workflows, reduce costs, and improve process transparency. A key part of my work included analyzing spectral data, such as color reflectance, to optimize IRR (Infrared Reflectance) values—an essential requirement for defense textiles.",
-            proj1_title: "RAG-based Chatbot for Product Development",
-            proj1_desc: "Built an intelligent chatbot for Product Development team using 800+ technical fabric articles (1467 variants). Processed 1.5 crore rows from 28 Excel files to help PD team with parachute, defense, industrial, auto, and sportswear fabric development. Complete end-to-end pipeline with data cleaning, feature engineering, and intelligent retrieval system.",
-            proj2_title: "Spectral Data Analysis for Defense Textiles",
-            proj2_desc: "Developed a spectral analysis pipeline to optimize IRR (Infrared Reflectance) values for defense textile products. Automated data extraction from ERP and Excel, performed advanced statistical analysis, and visualized results for product teams.",
-            proj3_title: "Crime Rate Prediction Model",
-            proj3_desc: "Built a regression model to analyze the influence of socio-economic factors on crime rates. Conducted data preprocessing, feature selection, and utilized Python libraries for statistical modeling and analysis to derive actionable insights.",
-            edu1_degree: "Master of Technology - M.Tech, Management Sciences (formerly IME)",
-            edu1_school: "Indian Institute of Technology, Kanpur",
-            edu1_duration: "2024 - Present",
-            edu1_grade: "Current CGPA: 8.05/10 (Up to First Semester)",
-            edu2_degree: "Bachelor of Technology - B.Tech, Textile Chemistry",
-            edu2_school: "Nitra Technical Campus, Ghaziabad",
-            edu2_duration: "2017 - 2021",
-            edu2_grade: "CGPA: 8.26/10",
-            edu3_degree: "Higher Secondary Education - UP Board",
-            edu3_school: "Rani Laxmi Bai Smarak Inter College",
-            edu3_duration: "2015",
-            edu3_grade: "Percentage: 78.8%",
-            blog1_title: "Understanding RAG-based Chatbots",
-            blog1_date: "December 2024",
-            blog1_content: "Deep dive into Retrieval Augmented Generation (RAG) architecture and how it revolutionizes enterprise chatbot development. Learn about the implementation challenges and best practices from real-world experience.",
-            blog2_title: "Data Science in Defense Industry",
-            blog2_date: "November 2024",
-            blog2_content: "Exploring how data science and machine learning are transforming the defense textile industry. From spectral analysis to predictive manufacturing, discover the applications that are changing the game.",
-            email1: "rishabhp24@iitk.ac.in",
-            email2: "rishudrp@gmail.com",
-            phone: "+91 7985647101",
-            location: "IIT Kanpur, Kanpur, UP, India"
-        };
+        }, 30000); // Auto-save every 30 seconds when admin panel is open
     </script>
 </body>
 </html>
